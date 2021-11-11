@@ -7,6 +7,18 @@ ol, ul{
     margin: 0;
     padding: 0;
 }
+span{
+    font-weight: bold;
+}
+table, td, th{
+    border: 5px solid black;
+}
+table{
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+    border-width: collapse;
+}
 
 #main_header{
     background-color: orange;
@@ -57,6 +69,10 @@ ol, ul{
     max-width: 100%;
     font-size-adjust: inherit;
 }
+#hero_content{
+    padding: 0 5%;
+    font-size: 15px;
+}
 #hero_image img{
     max-width: 100%;
 }
@@ -86,7 +102,6 @@ ol, ul{
     border-top: orange;
     width: 50%;
     text-align: center;
-    padding: 30px;
 }
 .member_name{
     font-size: 30px;
@@ -97,6 +112,7 @@ ol, ul{
 }
 .member_info{
     font-size: 15px;
+    padding:0 10%;
 }
 .informacion{
     display: flex ;
@@ -133,6 +149,9 @@ ol, ul{
     justify-content: center;
     color: orange;
     margin: 0;
+}
+.practica{
+    padding:0 10%;
 }
 .next{
     text-align: center;
