@@ -17,9 +17,10 @@ table{
     margin: 0 auto;
     text-align: center;
     width: 50%;
-    border-width: collapse;
+ }
+code{
+    width: 50%;
 }
-
 #main_header{
     background-color: orange;
     color: #008a77;
@@ -126,7 +127,6 @@ table{
     display: flex ;
     height: inherit;
     justify-content: center;
-
 }
 .member ul li{
     display: flex ;
@@ -155,6 +155,25 @@ table{
 }
 .video_informe{
     text-align: center;
+}
+.info_compuerta{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.info_compuerta img{
+    max-width: 500px;
+    max-height: 700px;
+}
+.codigo_compuerta{
+    background-color: orange;
+    padding: 0 10px;
+    border: 3px solid black;
+    border-radius: 5%;
+}
+.codigo_compuerta pre{
+    text-align: left;
+    font-size: 20px;
 }
 .next{
     text-align: center;
