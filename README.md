@@ -1,1 +1,1 @@
-# Página web del Grupo luciernaga. Arquietectura de computadores 2021-2
+# Página web del Grupo luciernaga. Arquitectura de computadores 2021-2
