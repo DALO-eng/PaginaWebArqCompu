@@ -1,6 +1,8 @@
 body{
     font-family: 'RocknRoll One', sans-serif;
     margin: 0;
+    background-color: #FFF8CD;
+    color: #646464;
 } 
 ol, ul{
     list-style: none;
@@ -21,35 +23,60 @@ table{
 code{
     width: 50%;
 }
+a{
+    text-decoration: none;
+    color: #646464;
+}
+summary{
+    padding: 1% 10%;
+    font-size: 2em;
+}
+summary:hover{
+    color: #FFF8CD;
+    background-color: #FF9642;
+    cursor: pointer;
+}
 #main_header{
-    background-color: orange;
+    background-color: #FF9642;
     color: #008a77;
     display: flex;
     justify-content:space-around;
-    align-items: center;
     flex-shrink: 0;
     flex-wrap: wrap;
     text-align: center;
     margin: 0;
 }
-#main_header a{
-    color: black;
-    text-decoration: none;
+#navegator{
     display: flex;
-    height: inherit;
     align-items: center;
-    padding: 0 10px;
+    font-size: 2em;
+    width: 700px;
+    justify-content: space-around;
 }
-#navigation{
-    height: inherit;
+#navegator nav{
+    height: 100%;
+    width: 100%;
 }
-#main_header ul{
-    display: flex ;
+#navegator nav ul{
+    width: inherit;
     height: inherit;
+    display: flex;
+    justify-content: space-between;
+
 }
-#main_header ul li{
+#navegator nav ul li{
     height: inherit;
-    max-height: 100%;
+    display: table;
+    width: 25%;
+}
+#navegator nav ul li a{
+    display: table-cell;
+    vertical-align: middle; 
+    color: #FFF8CD;
+}
+#navegator nav ul li a:hover{
+    background-color: #FFE05D;
+    color: #646464
 }
 #Inicio{
     display: flex;
@@ -159,7 +186,8 @@ code{
 .info_compuerta{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 .info_compuerta img{
     max-width: 500px;
@@ -176,13 +204,17 @@ code{
     font-size: 20px;
 }
 .imagenes_respuesta{
+    width: 100%;
     text-align: center;
+}
+.imagenes_respuesta img{
+    width: 100%;
 }
 .next{
     text-align: center;
 }
 #main_footer{
-    background-color: gray;
+    background-color: #FFE05D;
     display: flex;
     align-items: center;
     justify-content: space-around;
