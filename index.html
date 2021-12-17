@@ -273,10 +273,10 @@
                     </article>
                 </details>
                 <details>
-                    <summary>Segunda Práctica: Conociendo Nand2Tetris</summary>
+                    <summary>Práctica 2: Conociendo Nand2Tetris</summary>
                     <article class="practica">
                         <div class="titulo_practica">
-                            <h2>Segunda Práctica: Conociendo Nand2Tetris</h2>
+                            <h2>Práctica 2: Conociendo Nand2Tetris</h2>
                         </div>
                         <div class="descripcion_practica">
                             <p>Los profesores Noam Nisan y Simon Schocken, autores del libro The Elements of Computing Systems,
@@ -1290,6 +1290,314 @@ CHIP PC {
                             </ol>
                         </div>
                     </div>
+                    </article>
+                </details>
+                <details>
+                    <summary>Práctica 4: Lenguaje de Máquina y Arquitectura Computacional</summary>
+                    <article class="practica">
+                        <div class="titulo_practica">
+                            <h2>Práctica 4: Lenguaje de Máquina y Arquitectura Computacional</h2>
+                        </div>
+                        <div class="descripcion_practica">
+                            <p>Este laboratorio trata el proyecto 4, relacionado con lenguaje de
+                                máquina puede encontrarse en: <a href="https://www.nand2tetris.org/project04">https://www.nand2tetris.org/project04</a> y
+                                busca atacar el proyecto 5: arquitectura computacional, que puede consultarse en: <a href="https://www.nand2tetris.org/project05">
+                                https://www.nand2tetris.org/project05</a></p>
+                        </div>
+                        <div class="desarrollo_practica">
+                            <div class="informe">
+                                <div class="video_practica">
+
+                                </div>
+                                <ol>
+                                    <li>
+                                        <h4>¿Cuál es el objetivo de cada uno de esos proyectos con sus palabras y describa que debe hacer para desarrollarlo?</h4>
+                                        <p>El objetivo de esta práctica es el de comprender el lenguaje de máquina mediante en ensamblaje de bajo nivel,
+                                            además, se continuará con la construcción de un computador a base de la creación de nuevos chips a base de lo creados
+                                            anteriormente en anteriores prácticas.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h4>Construir las compuertas solicitadas y documentar los resultados:</h4>
+                                        <h2>Project 4:</h2>
+                                        <ul>
+                                            <li>
+                                                <h3>MULT.ASM</h3>
+                                                <div class="info_compuerta">
+                                                    <div class="codigo_compuerta">
+                                                        <h4>Código:</h4>
+    <pre>
+        <code>
+    // Multiplies R0 and R1 and stores the result in R2.
+    // (R0, R1, R2 refer to RAM[0], RAM[1], and RAM[2], respectively.)
+
+    // Put your code here.
+    @R2
+    M=0
+
+    @R0
+    D=M
+    @STEP
+    D;JGT
+
+    @END
+    0;JMP
+
+    (STEP)
+        @R2
+        D=M
+
+        @R1
+        D=D+M
+
+        @R2
+        M=D
+
+        @R0
+        D=M-1
+        M=D
+
+        @STEP
+        D;JGT
+
+    (END)
+        @END
+        0;JMP
+        </code>
+    </pre>
+                                                    </div>
+                                                </div>
+                                                <p>Explicación</p>
+                                            </li>
+                                            <li>
+                                                <h3>FILL.ASM</h3>
+                                                <div class="info_compuerta">
+                                                    <div class="codigo_compuerta">
+                                                        <h4>Código:</h4>
+    <pre>
+        <code>
+    // Runs an infinite loop that listens to the keyboard input.
+    // When a key is pressed (any key), the program blackens the screen,
+    // i.e. writes "black" in every pixel;
+    // the screen should remain fully black as long as the key is pressed. 
+    // When no key is pressed, the program clears the screen, i.e. writes
+    // "white" in every pixel;
+    // the screen should remain fully clear as long as no key is pressed.
+
+    // Put your code here.
+    (RESTART)
+    @SCREEN
+    D=A
+    @0
+    M=D	
+
+    (KBDCHECK)
+
+    @KBD
+    D=M
+    @BLACK
+    D;JGT	
+    @WHITE
+    D;JEQ	
+
+    @KBDCHECK
+    0;JMP
+
+    (BLACK)
+    @1
+    M=-1	
+    @CHANGE
+    0;JMP
+
+    (WHITE)
+    @1
+    M=0	
+    @CHANGE
+    0;JMP
+
+    (CHANGE)
+    @1	
+    D=M	
+
+    @0
+    A=M	
+    M=D	
+
+    @0
+    D=M+1	
+    @KBD
+    D=A-D	
+
+    @0
+    M=M+1	
+    A=M
+
+    @CHANGE
+    D;JGT	
+    @RESTART
+    0;JMP
+        </code>
+    </pre>
+                                                    </div>
+                                                </div>
+                                                <p>Explicación</p>
+                                            </li>
+                                        </ul>
+                                        <h2>Project 5:</h2>
+                                        <ul>
+                                            <li>
+                                                <h3>Compuerta MEMORY</h3>
+                                                    <div class="info_compuerta">
+                                                        <img src="https://lh3.googleusercontent.com/2kEIS1AU1uG00eFafuYCzhyaTzMcGm7oDuMslvKmQGP8VDrGZy8QmQJwsiQRg9oOGx34TD7fex217nsUNp0Wtef8YjSyyvteiEMkkByK1Iw2QQfwFg2Bj2He9V96XbvCWikwtZH3fsglleYlpjTSPd-BKHpwxzO3jyp9vrS1H8GD-gtrBFPTQNEX8S0Jt_Mrk0HcLsM1Jp54VWzPXrhWTdithtNXdzZLuL1pdEaubG1sZsDLIq7vlj4yh3K_xc1NDirMMaG-RGIeBxeDmZRHfNpD_n6LuwbqahkacsOpLA1wTsjJqQYmkzTJiNIn39CEPuQS8OkRSJ4eO80mTCk8FfkVjRkj1eNOnpv7snOKUJoYbSHJtwvT5jjUQHsl-LGGIZc-Plnp5c4QDKdXyPGGVab6AG26F5fjVoxV10GzKOHH9TaUh0nZcFzNDMhWukAuBUJ1q0YzaF4x7kAZLIuIZ5bD9IntQPiNPZNRNme9X7ujPHvi0AfJHRg-2AaFcC08IKsGn4g8XXOudxWFLsX7fWZw5pz8NOmxntY5D-XaJCFjsj6KqqnQpYSqQwgkH9NRlUbcQIwI65p4MtDVxDdpSaYp5D3fNyxCOaONMRop779hRlV2VyALIaRbK4NHMTEHp-wdhjA2LUNdptNjPDw3J7bdiaDuOA3m3k9d4KzJPp9WXzCFwFmBv7lMsLsq_BJFGcecsz2VLGaiIAAkzmlnKu8a=w1104-h786-no?authuser=0" alt="memory">
+                                                        <div class="codigo_compuerta">
+                                                            <h4>Código:</h4>
+    <pre>
+    <code>
+    /**
+    * The complete address space of the Hack computer's memory,
+    * including RAM and memory-mapped I/O. 
+    * The chip facilitates read and write operations, as follows:
+    *     Read:  out(t) = Memory[address(t)](t)
+    *     Write: if load(t-1) then Memory[address(t-1)](t) = in(t-1)
+    * In words: the chip always outputs the value stored at the memory 
+    * location specified by address. If load==1, the in value is loaded 
+    * into the memory location specified by address. This value becomes 
+    * available through the out output from the next time step onward.
+    * Address space rules:
+    * Only the upper 16K+8K+1 words of the Memory chip are used. 
+    * Access to address>0x6000 is invalid. Access to any address in 
+    * the range 0x4000-0x5FFF results in accessing the screen memory 
+    * map. Access to address 0x6000 results in accessing the keyboard 
+    * memory map. The behavior in these addresses is described in the 
+    * Screen and Keyboard chip specifications given in the book.
+    */
+
+    CHIP Memory {
+        IN in[16], load, address[15];
+        OUT out[16];
+
+        PARTS:
+        DMux4Way(in=load, sel=address[13..14], a=loada, b=loadb,
+        c=loadc, d=loadd);
+        Or(a=loada, b=loadb, out=loadram);
+        RAM16K(in=in, load=loadram, address=address[0..13], out=rout);
+        Screen(in=in, load=loadc, address=address[0..12], out=sout);
+        Keyboard(out=kout);
+        Mux4Way16(a=rout, b=rout, c=sout, d=kout,
+        sel=address[13..14], out=out);
+    }
+        </code>
+    </pre>
+                                                        </div>
+                                                    </div>
+                                                    <p>Explicación</p>
+                                            </li>
+                                            <li>
+                                                <h3>Compuerta CPU</h3>
+                                                    <div class="info_compuerta">
+                                                        <img src="https://lh3.googleusercontent.com/8_w2G7H8R3gE3DqkmVv3QHpm8qC7wqO-KvM-QmXYAzMR3TqK8ljNctAoxMyEWSpjaQDQJb47wnX604zjn84B4EvMr6xY-vSGPyzv40fiPCprkpkBbWygxLMkIjFJNBAUqSS1a789Q5DdR-vxy2fTi7AR-ukIpfUSKdrzulImc4v1Rr82l-rqf4Cf8Z07QTJNL6kAUYTm3sJ1ralJt7mMuLJSX1TIxtBPo5D4oLjBCTkhoVhd7d0Rdqc39KB723XyZewSCIscPcB0tTLxUkKDqEylxbU4vIFKB9Crv4r1CqYIIHZYuy1r65iQxpc84mhtANAXFBNmEO4rbU6NTEZRMj--8j5-HEnbcZOpHXmM63WygzdmnU92d7odwm0XR4qjz5jt8pPZvpMtyYUdpwIB4w91keAjiaoICmTAcr8AWS-mhqRbjpQgH5cgJH_6ek_FaquTtu8LbIkMbtkV4Th3ALMwAxsPbYsMge50fzsNwTNFC1pC0exxO6kPl7fcupaNLCVHks9hkqmo5AXNnDMyCwXVZJnTjZnHujZ_ecQj2dFpeP3BDB9H5QkJtV1men_w1vxa3diXugILoFU--gLbda5LXGoV4-kSm--afEcpM1qGOefHv1rtFqWLv_nxrraYowNrQMhJsQeUGtlQAdBuJ4Cj0XN36CyDV74tJgpBqbRzT7fshuzKdp9c40wDd-iExjuLl5EK0tR2A4pHoizsqvK8=w937-h551-no?authuser=0" alt="CPU">
+                                                        <div class="codigo_compuerta">
+                                                            <h4>Código:</h4>
+    <pre>
+    <code>
+    CHIP CPU {
+        IN  inM[16],         // M value input  (M = contents of RAM[A])
+            instruction[16], // Instruction for execution
+            reset;           // Signals whether to re-start the current
+                            // program (reset==1) or continue executing
+                            // the current program (reset==0).
+
+        OUT outM[16],        // M value output
+            writeM,          // Write to M? 
+            addressM[15],    // Address in data memory (of M)
+            pc[15];          // address of next instruction
+
+        PARTS:
+        Not(in=instruction[15], out=Ains);
+        Not(in=Ains, out=Cins);
+        
+        And(a=Cins, b=instruction[5], out=aALU);    
+        Mux16(a=instruction, b=ALUout, sel=aALU, out=Areg);
+        
+        Or(a=Ains, b=aALU, out=loadA);   
+        ARegister(in=Areg, load=loadA, out=Aout);
+        
+        Mux16(a=Aout, b=inM, sel=instruction[12], out=AMout);  
+
+        And(a=Cins, b=instruction[4], out=loadD);
+        DRegister(in=ALUout, load=loadD, out=Dout);   
+        
+        ALU(x=Dout, y=AMout, zx=instruction[11], nx=instruction[10], 
+            zy=instruction[9], ny=instruction[8], f=instruction[7],
+            no=instruction[6], out=ALUout, zr=ZRout, ng=NGout); 
+            
+        Or16(a=false, b=Aout, out[0..14]=addressM);
+        Or16(a=false, b=ALUout, out=outM);
+        And(a=Cins, b=instruction[3], out=writeM);
+        
+        And(a=ZRout, b=instruction[1], out=jeq);   
+        And(a=NGout, b=instruction[2], out=jlt);    
+        Or(a=ZRout, b=NGout, out=zeroOrNeg);
+        Not(in=zeroOrNeg, out=positive);           
+        And(a=positive, b=instruction[0], out=jgt);
+        Or(a=jeq, b=jlt, out=jle);
+        Or(a=jle, b=jgt, out=jA);              
+        And(a=Cins, b=jA, out=PcL); 
+        Not(in=PcL, out=PcI);                  
+        PC(in=Aout, inc=PcI, load=PcL, reset=reset, out[0..14]=pc);
+    }
+        </code>
+    </pre>
+                                                        </div>
+                                                    </div>
+                                                    <p>Explicación</p>
+                                            </li>
+                                            <li>
+                                                <h3>Compuerta COMPUTER</h3>
+                                                    <div class="info_compuerta">
+                                                        <img src="https://lh3.googleusercontent.com/w00DgDG2l0PigcS-HsXoIbgMzlUFBfNT1sSoibxRyW5NCZv_3WBIuW5Cq8Hok5GiIrQ0ig_Jx6fxE6XtM5gxQLKeCnWSMmLgaifKZ8ht2qO110bsoWk25OVF1wmvf3JqPRAvBCNF1S3XOUeaWEanfyUEU0OKlMl8yH6YRobDOaCHX7IsJaEVYZlL3OvKAOY3AxJ1ggneMw-VZ7o23BV0YT-lNGExm7URMvfnomCtWvHHrBo5lKsPEMO4_1aahhq38DyUJJIx7Fo5ZAcTp9IWzYrADWh5UDyxSjbzCqkeBC9hn3Sv7AshGsFenI6JYOsDm053M4VROwoCrpVq4xQyhgLWkn4VZnlHElYvzAa7-DUFpcMbvjr8B33iHOkeGiOAqXGE9cPhDf5i_Z7nrPOp5WTMUrEZuejdvfOyex9GeUTCd_rAI6o0zLtU1c1EbB5gVDjo-pc4SWV8w-2fD9NO34IBZ4c71uWDeio_ilD8kfSnSolUhzwhZEXZ946o0P2_PYSiQY_M7PLdmwnTumMXmIxE2TI4snC40lB8g81Ts0-Dj2Ibj7-PeLFV8G5ew0Wkdvc0TyiI4dHMPVEng57AByUVL_CALUWoxSXl2HwPAQBqzbDbopkvW9QHQPguqaEXgtd8fwfrhcSqQmgJP_zmDnmGHEHyMu8DhUNM3bvZkPp5UWOh3xiQBvbLt5SDvxp3TPiUATMg5ObVDvm2laIEUvzi=w749-h606-no?authuser=0" alt="COMPUTER">
+                                                        <div class="codigo_compuerta">
+                                                            <h4>Código:</h4>
+    <pre>
+    <code>
+    // This file is part of www.nand2tetris.org
+    // and the book "The Elements of Computing Systems"
+    // by Nisan and Schocken, MIT Press.
+    // File name: projects/05/Computer.hdl
+
+    /**
+    * The HACK computer, including CPU, ROM and RAM.
+    * When reset is 0, the program stored in the computer's ROM executes.
+    * When reset is 1, the execution of the program restarts. 
+    * Thus, to start a program's execution, reset must be pushed "up" (1)
+    * and "down" (0). From this point onward the user is at the mercy of 
+    * the software. In particular, depending on the program's code, the 
+    * screen may show some output and the user may be able to interact 
+    * with the computer via the keyboard.
+    */
+
+    CHIP Computer {
+
+        IN reset;
+
+        PARTS:
+        
+        ROM32K(address=pc,out=instruction);
+        CPU(inM=inM,instruction=instruction,reset=reset,outM=outM,
+        writeM=writeM,addressM=addressM,pc=pc);
+        Memory(in=outM,load=writeM,address=addressM,out=inM);
+    }
+        </code>
+    </pre>
+                                                        </div>
+                                                    </div>
+                                                    <p>Explicación</p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
                     </article>
                 </details>
             <div class="next">
