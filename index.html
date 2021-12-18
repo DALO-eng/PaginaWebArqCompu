@@ -1306,8 +1306,9 @@ CHIP PC {
                         </div>
                         <div class="desarrollo_practica">
                             <div class="informe">
-                                <div class="video_practica">
-
+                                <div class="video_informe">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/AGj7rmvMi6w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <p>El caso de no cargar el video, puede darle click <a href="https://www.youtube.com/watch?v=AGj7rmvMi6w" target="_blank"> Aqui</a></p>
                                 </div>
                                 <ol>
                                     <li>
@@ -1367,7 +1368,10 @@ CHIP PC {
     </pre>
                                                     </div>
                                                 </div>
-                                                <p>Explicación</p>
+                                                <p>Este programa permite realizar la operación de multiplicación entre dos valores de entrada enteros, almacenados en RAM0 y RAM1.
+                                                    El resultado de la multiplicación se almacena en RAM2.
+                                                    Para la correcta implementación del programa MULT se requirieron adiciones y sustracciones repetitivas en un ciclo.
+                                                    El programa tiene estas condiciones: R0>=0, R1>=0, y R0*R1 < 32768, aunque estas no se especifican en el código, son asumidas por este.</p>
                                             </li>
                                             <li>
                                                 <h3>FILL.ASM</h3>
@@ -1440,7 +1444,10 @@ CHIP PC {
     </pre>
                                                     </div>
                                                 </div>
-                                                <p>Explicación</p>
+                                                <p>El fill trabajara sobre las rams para que sea posible poner la pantalla del computador
+                                                    se ponga en blanco y negro.
+                                                    Para poder ejecutar el fill debemos asignar adecuadamente los valores de direccion de las ram
+                                                    tambien se debe aplicar funcionesdependiente de la keyboard y como estos varían la ram.</p>
                                             </li>
                                         </ul>
                                         <h2>Project 5:</h2>
@@ -1490,7 +1497,13 @@ CHIP PC {
     </pre>
                                                         </div>
                                                     </div>
-                                                    <p>Explicación</p>
+                                                    <p>La compuerta MEMORY simula la memoria de una computadora, inicialmente se decide que se va a realizar mediante un DMUX4WAY,
+                                                        siendo las opciones la memoria (loada, loadb), la pantalla (loadc) o el teclado (loadd),
+                                                        debido a que la memoria ocupa dos valores, se utiliza un OR para simplificar tal elección. 
+                                                        Posterior a esto, se utilizan las compuertas correspondientes a las selecciones disponibles, siendo 
+                                                        estas RAM16K, KEYBOARD y SCREEN, para finalmente mostrar la opción seleccionada mediante el uso de un
+                                                        Mux4Way16. 
+                                                    </p>
                                             </li>
                                             <li>
                                                 <h3>Compuerta CPU</h3>
@@ -1550,7 +1563,9 @@ CHIP PC {
     </pre>
                                                         </div>
                                                     </div>
-                                                    <p>Explicación</p>
+                                                    <p>A continuación tenemos el código correspondiente a la compuerta CPU, con sus respectivas 
+                                                        entradas que vienen del vector de datos de la RAM, sus salidas y cada una de las partes que 
+                                                        lo componen, entre las partes podemos encontrar compuertas como AND, OR, MULTIPLEXORES entre otras</p>
                                             </li>
                                             <li>
                                                 <h3>Compuerta COMPUTER</h3>
@@ -1591,7 +1606,9 @@ CHIP PC {
     </pre>
                                                         </div>
                                                     </div>
-                                                    <p>Explicación</p>
+                                                    <p>A partir de la combinación de las compuertas creadas en este proyecto (la cpu, una rom y una memoria) se tiene
+                                                        la compuerta de el computador, la cual es capaz de recibir varias instrucciones (principalmente las instrucciones
+                                                        contenidas en la compuerta CPU) en lenguaje de máquina.</p>
                                             </li>
                                         </ul>
                                     </li>
