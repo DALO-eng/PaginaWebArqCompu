@@ -194,11 +194,20 @@ summary:hover{
     max-width: 600px;
     max-height: 700px;
 }
+.separador_codigos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.separador_codigos div{
+    margin: 1rem;
+}
 .codigo_compuerta{
     background-color: orange;
     padding: 0 10px;
     border: 3px solid black;
-    border-radius: 5%;
+    border-radius: 2rem;
+    color: #FFF8CD;
 }
 .codigo_compuerta pre{
     text-align: left;
