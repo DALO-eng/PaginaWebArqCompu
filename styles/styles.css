@@ -19,6 +19,7 @@ table{
     margin: 0 auto;
     text-align: center;
     width: 50%;
+    border-collapse: collapse;
  }
 code{
     width: 50%;

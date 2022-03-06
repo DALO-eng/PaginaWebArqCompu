@@ -2243,10 +2243,164 @@ Traducción del archivo Pong.asm
             <div class="title_section">
                 <h2>Proyecto</h2>
             </div>
-            <div class="next">
-                <h1>[PROXIMAMENTE]</h1>
-            </div>
-        </SEction>
+            <article class="practica">
+                <div class="titulo_practica">
+                    <h2>Diseño para un computador enfocado en la prueba 
+                        de diversas aplicaciones enfocadas a las reuniones 
+                        en línea</h2>
+                </div>
+                <div class="descripcion_practica">
+                    <h3>Problemática planteada</h3>
+                    <p>Una empresa mediana, tipo Spin Off universitaria busca desarrollar
+                        aplicaciones para ciberseguridad, para lo cual los contrata como
+                        equipo de consultores, para adquirir una solución tecnológica
+                        in-situ que permita probar diversos tipos de aplicaciones
+                        que son enfocadas a reuniones en línea. Estas han sido construidas
+                        usando diferentes lenguajes de programación, ambientes de desarrollo
+                        y ejecución conocidos, normalmente sobre diferentes sistemas operativos
+                        y compiladores tanto Open Source como propietario. Dicha plataforma debe
+                        poder ser accesada por red via Internet, para un máximo de 100 usuarios, 
+                        normalmente emulados por otra plataforma con relativa intervención humana. 
+                        El switch respectivo para acceder, asi como el servidor frontend y otros 
+                        dispositivos necesarios de seguridad no lo tiene la empresa, por lo que igual debe 
+                        sugerirse y listarse cuales deben ser esos equipos y sus principales características. 
+                        La plataforma deberá enlazarse con una plataforma de almacenamiento dedicado que ya 
+                        esta en la empresa tipo SAN de 250 TB con puertos de interconexión estándar que se 
+                        encuentran en el mercado (fibra óptica, Infiniband) y el switch respectivo, que igual 
+                        la ya se tiene. El presupuesto esta limitado a USD 250.000.oo (Doscientos cincuenta mil 
+                        dólares) que incluiría impuestos posibles y gastos de adaptación (enfriamiento especializado 
+                        si se requiere, armarios, UPS, etc.). Muy importante considerar el costo de acceso a internet 
+                        comercial (para uso efectivamente empresarial, no en el hogar).</p>
+                </div>
+                <div class="desarrollo_practica">
+                    <div class="informe">
+                        <div class="video_informe">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/w3WojgsdQIw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <p>El caso de no cargar el video, puede darle click <a href="https://youtu.be/w3WojgsdQIw" target="_blank"> Aqui</a></p>
+                        </div>
+                        <ol>
+                            <li>
+                                <h3>Elementos requeridos</h3>
+                                <p>Los dispositivos optimos para este sistema son los siguientes:</p>
+                                <table>
+                                    <tr>
+                                        <th>Dispositivo</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Servidor</td>
+                                        <td>El ordenador planteado por la empresa ocupa el rol de un servidor encargado de conectar el sistema de almacenamiento SAN
+                                            con los clientes. Requiere suficiente potencia para soportar 100 usuarios y multiples 
+                                        aplicaciones que requieren una potencia gráfica moderada.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Switches</td>
+                                        <td>Gracias a estos se transmiten y se conectan los equipos y otros elementos 
+                                            dentro de la red. Si se conectan varios switches, ellos mismos se encargarán de entenderse entre sí, para así saber a dónde deben 
+                                            ser enviados los datos, es por lo tanto un dispositivo pensado para facilitar la comunicación entre equipos. </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Servidor Frontend</td>
+                                        <td>Es la interfaz con la que los usuarios van a interactuar, se necesita 
+                                            que sea claro y fácil de usar, que sea visualmente limpio para que los usuarios estén cómodos con dicha interfaz y finalmente 
+                                            que la información esté bien plasmada para que sea de fácil acceso.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Protocolo de seguridad</td>
+                                        <td>Se requiere de un protocolo de seguridad para proteger los datos del servidor de posibles ataques, en la actualidad existen 
+                                            diferentes métodos para proteger nuestro sistema, tales como la implementación de llaves SSH, VPN, entornos de ejecución 
+                                            aislados, entre otros.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sistema de alimentación</td>
+                                        <td>Se necesitan dispositivos que permitan mantener el sistema con acceso a electricidad y evitar caídas de sistemas, el caso de 
+                                            ocurrir alguno, dicho dispositivo deberá mantener en funcionamiento los ordenadores mientras se soluciona la falla de 
+                                            electricidad.</td>
+                                    </tr>
+                                </table>
+                            </li>
+                            <li>
+                                <h3>Especificaciones</h3>
+                                <p>Teniendo en cuenta los elementos requeridos, junto a las limitaciones dadas, podemos proponer los siguientes elementos:</p>
+                                <ul>
+                                    <li>
+                                        <h4>Servidor:</h4>
+                                        <p>Para el servidor se necesitaron múltiples partes que lograran soportar los requerimientos solicitados
+                                            de una manera constante.
+                                        </p>
+                                        <p>
+                                            Para la GPU, se decidió elegir <span>2 Nvidia A40</span> debido a sus 48GB de memoria GDDR6, 
+                                            la gran cantidad de CudaCores y las innovaciones que le provee la tecnología Ampere, nos permitirá
+                                            soportar la visualización de aplicaciones de reuniones virtuales sin problemas. Una vez establecida la 
+                                            GPU, podemos seleccionar un Procesador óptimo para evitar un cuello de botella, las CPUs seleccionadas
+                                            fueron <span>2 Intel Xeon Platinum 8362</span>,  los cuales son dedicados principalmente para uso de servidores, estos 
+                                            procesadores pueden manejar procesos intensivos en datos y aun así mantener la velocidad esto, además también hay 
+                                            que recordar que esta plataforma deberá estar encendida todo el tiempo y la familia XEON son reconocidas por cumplir 
+                                            perfectamente esta labor. En memoria no hay mucho que mencionar ya que simplemente se tomaran los módulos de mejor rendimiento 
+                                            que existen actualmente es decir <span>módulos PC4-25600 3200MHz DDR4 ECC RDIMM</span>, así que se tomaran 32 de estos
+                                            módulos de 16GB para un total de 512 Gb de almacenamiento.
+                                        </p>
+                                        <p>
+                                            El servidor también requiere una tarjeta de red, cual necesita un alto ancho de banda a para tener una transmisión rápida de la 
+                                            información, debe poder conectarse vía PCIe ya que se planea buscar una placa con estas características, por lo que se seleccionaron
+                                           <span>dos puertos  Mellanox 200GbE Adapter ConnectX-6 Dx</span>, los cuales nos ayudan a evitar un cuello de botella y tener una comunicación
+                                           fluida. Para los modulos I/O se contó con <span>2 Supermicro AIOM OCP 3.0</span> para poder realizar procesos automatizados y aumentar
+                                           la eficacia del trabajoy facilitar el control y la vigilancia en tiempo real.
+                                        </p>
+                                        <p>
+                                            Para la seguridad del ordenador requerimos de TPM para un fácil manejo del encriptado de datos, el cual se seleccionaron 
+                                            <span>2 Infineon 9670</span> para un encriptado eficaz. Y finalmente, con respecto al sistema operativo del servidor
+                                            se decidió el uso del sistema operativo <span>Linux mediante Red Hat</span> por su soporte mayor a 24 núcleos  y el tener 
+                                            un buen funcionamiento y manejo del sistema.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h4>Switch</h4>
+                                        <p>Luego de analizados factores como el número de conexiones necesarias, las funciones avanzadas requeridas, la importancia 
+                                            de la escalabilidad y la seguridad, el rendimiento, el costo y entre otros, se optó por elegir dos unidades del <span>switch GS752TSB</span>, 
+                                            el cual pertenece a la Stackable Smart Switch Series de Netgear, ofrece una experiencia de escalabilidad y 
+                                            confiabilidad, además de que aporta el rendimiento que necesitan las pequeñas y medianas empresas en crecimiento en un paquete 
+                                            asequible y fácil de administrar. 
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h4>Servidor Frontend</h4>
+                                        <p>
+                                            Para la interfaz que usarán los clientes se debe tener en cuenta que sea claro y fácil de usar, que sea visualmente limpio para que
+                                            los usuarios estén cómodos con dicha interfaz y finalmente que la información esté bien plasmada para que sea de fácil acceso.
+                                            Esta página deberá contener elementos clave como resgistros, verificación de datos, botones visiles para múltiples funciones y rapidez de 
+                                            navegación aceptable. 
+                                        </p>
+                                        <p>
+                                            Para esta interfaz se pueden utilizar múltiples tecnologías, pero decidimos escoger la implementación de <span>React.js</span> para 
+                                            implementar una SPA (Single Page Application) y obtener una visualización bastante limpia, podremos añadirle estilos mediante varios métodos
+                                            como <span>SASS o algun otro preprocesador para React</span>.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h4>Protocolo de Seguridad</h4>
+                                        <p>
+                                            De todos los diferentes métodos para aumentar la seguridad del sistema, decidimos usar el Firewall <span>Fortinet FortiGate 2000E</span> 
+                                            la cual posee diferentes características más que suficientes para satisfacer la seguridad del sistema, como un total de 80Gbps de 
+                                            Firewall, 11.5 Gbps IPS, 9 Gbps NGFW, 5.4 Gpps de threat protection, entre otras más
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h4>Sistema de alimentación</h4>
+                                        <p>
+                                            Se decidieron utilizar UPS como sistema de alimentacion, especificamente <span> 2 UPS Smart-UPS de 3000VA</span> de la marca APC, debido a su capacidad de seguir 
+                                            su funcionamiento mediante un dispositivo conectado a internet para prevenir daños, además, regula de forma automática los 
+                                            voltajes altos y bajos a un nivel seguro. o. Su estructura de 10 entradas NEMA le permitirá a la empresa conectar más dispositivos 
+                                            a estas UPS en algún futuro sin necesidad de adquirir UPS adicionales. 
+                                        </p>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </article>
+        </section>
     </main>
     <footer id="main_footer">
         <div>
