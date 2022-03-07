@@ -224,6 +224,9 @@ summary:hover{
 .next{
     text-align: center;
 }
+.project-image{
+    text-align: center;
+}
 #main_footer{
     background-color: #FFE05D;
     display: flex;
